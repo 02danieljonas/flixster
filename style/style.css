@@ -1,0 +1,113 @@
+/*- the netflix navigation bar is weird and uses lots of different shades of black, that are probably unnoticable to the human eye */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+html {
+  background-color: #141414;
+  font-family: "Bebas Neue", cursive;
+  color: white;
+}
+
+#navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 68px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #070707;
+  font-family: "Bebas Neue", cursive;
+}
+
+#navbar-container #logo {
+  font-size: 30pt;
+  color: #e50914;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: relative;
+  padding-left: 4vw;
+  top: 8px;
+}
+
+#navbar-container #left-side-info {
+  color: #e5e5e5;
+  list-style-type: none;
+  margin: 0;
+  width: 52px;
+  padding: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#navbar-container #left-side-info :hover {
+  color: #d1d1d1;
+}
+
+#navbar-container #left-side-info span {
+  padding: 0 10px;
+}
+
+#navbar-container #right-side-info {
+  text-align: right;
+  color: white;
+  padding-right: 4vw;
+}
+
+#navbar-container #right-side-info #search {
+  padding: 1;
+  margin: 1;
+  border: 1px solid white;
+  width: 275px;
+}
+
+#navbar-container #right-side-info svg {
+  fill: white;
+  cursor: pointer;
+}
+
+#navbar-container #right-side-info input {
+  height: 24px;
+  background-color: #e50914;
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 14px;
+  outline: none;
+}
+
+#navbar-container #right-side-info input :focus {
+  border: blue;
+  width: 100%;
+}
+
+#search-icon {
+  display: none !important;
+  width: 24px;
+}
+
+#selected {
+  color: white;
+}
+
+.hidden {
+  display: none !important;
+}
+
+footer {
+  position: fixed;
+  color: white;
+  bottom: 0;
+  font-size: 999;
+}
+
+.pointer {
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */

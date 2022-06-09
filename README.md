@@ -1,6 +1,6 @@
 ## Week 1 Assignment: Flixster
 
-Submitted by: Daniel
+Submitted by: Daniel Jonas
 
 Estimated time spent: **#** hours spent in total
 
