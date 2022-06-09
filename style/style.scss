@@ -1,10 +1,6 @@
-/*- the netflix navigation bar is weird and uses lots of different shades of black, that are probably unnoticable to the human eye */
-// the nav bar only pops up after a some scrolls
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 html {
-    // background-color: #eDaf84//	rgb(20, 20, 20);
-    // background-image: repeating-radial-gradient(ellipse at center center, rgb(7,7,7),rgb(8,8,8),rgb(9,9,9),rgb(11,11,11),rgb(10,10,10),rgb(9,9,9),rgb(8,8,8),rgb(8,8,8) 2px);
     background-color: #141414;
     font-family: "Bebas Neue", cursive;
 
@@ -18,24 +14,16 @@ html {
     height: 68px;
     display: flex;
     justify-content: space-between;
-    // padding:0 4vw;
-
-
-    // align-items: c;
-
     background: rgb(7, 7, 7);
-
     font-family: "Bebas Neue", cursive;
-    
     #logo {
         font-size: 30pt;
         color: #e50914;
         user-select: none;
         position: relative;
         padding-left: 4vw;
-        top:8px;
+        top: 8px;
     }
-
     #left-side-info {
         color: #e5e5e5;
         // padding: 0 50px;
@@ -51,40 +39,52 @@ html {
             padding: 0 10px;
         }
     }
+
     #right-side-info {
         text-align: right;
         color: white;
         padding-right: 4vw;
-        #search {
-            padding: 1;
-            margin: 1;
+
+        #search-group {
             border: 1px solid white;
-            width: 275px;
+            height: 36px;
+            display: flex;
+            margin-top: 15px;
+            .icon{
+                padding: 0 10px ;
+            }
+            input {
+                padding-top: 6px;
+                height: 24px;
+                background-color: #e50914;
+                background-color: transparent;
+                color: white;
+                border: none;
+                font-size: 14px;
+                outline: none;
+                :focus {
+                    border: blue;
+                    width: 100%;
+                }
+            }
         }
-        svg {
-            fill: white;
-            cursor: pointer;
-        }
-        input {
-            height: 24px;
-            background-color: #e50914;
-            background-color: transparent;
-            color: white;
-
-            border: none;
-            font-size: 14px;
-            outline: none;
-
-            :focus {
-                border: blue;
-                width: 100%;
+        #profiles {
+            #arrow-icon {
+                transition-duration: 0.367s;
+            }
+            :hover {
+                transform: rotate(180deg);
             }
         }
     }
 }
-#search-icon {
-    display: none !important;
-    width: 24px;
+
+// #search-icon {
+//     display: none !important;
+//     width: 24px;
+// }
+.icon{
+    width: 10!important;
 }
 
 #selected {
