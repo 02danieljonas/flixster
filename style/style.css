@@ -181,8 +181,8 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: orange;
-  padding-bottom: 4vw;
+  background-color: transparent;
+  padding-bottom: 10vw;
 }
 
 .mediaContainer .genre-title {
@@ -191,17 +191,23 @@ footer {
 }
 
 .mediaContainer img {
-  padding: 0 2px;
+  z-index: 1;
+  padding: 0 5px;
   width: 22vw;
 }
 
-.mediaContainer :hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+#more-info {
+  margin: 0;
+  padding: 3px;
+  background-color: #303030;
+  position: fixed;
+  z-index: 0;
+  width: 22vw;
 }
 
-.imgHover :hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+#surround-image {
+  position: fixed;
+  background-color: #303030;
+  z-index: -1;
 }
 /*# sourceMappingURL=style.css.map */

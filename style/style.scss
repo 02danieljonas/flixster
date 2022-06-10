@@ -150,35 +150,36 @@ footer {
     height: 120px;
     padding-left: 4vw;
 }
-// .genre-title{
-//     padding-left: 4vw;
-// }
+
 
 .mediaContainer {
     display: flex;
-    background-color: orange;
+    background-color: transparent;
     // overflow: hidden;
-    padding-bottom: 4vw;
+    padding-bottom: 10vw;
 
     .genre-title {
         position: relative;
         top: -20pt;
     }
     img {
-        padding: 0 2px;
+        z-index: 1;
+        padding: 0 5px;
         width: 22vw;
     }
-    // #moreInfo {
-    //     color: blue;
-    //     position: fixed;
-    //     top: 30;
-    // }
-    :hover {
-        transform: scale(1.1);
-    }
 }
-.imgHover {
-    :hover {
-        transform: scale(1.1);
-    }
+
+#more-info{
+    margin: 0;
+    padding: 3px;
+    background-color: #303030;
+    position: fixed;
+    z-index: 0;
+    width: 22vw;
+}
+
+#surround-image{
+    position: fixed;
+    background-color: #303030;
+    z-index: -1;
 }

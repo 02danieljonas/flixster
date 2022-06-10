@@ -170,12 +170,16 @@ const MOVIE_GENRES = {
         },
     ],
 };
-
 let showList = {};
 let searchBar = document.querySelector("#search-input");
 let searchResultContainer = document.querySelector("#search-container");
 let closeIcon = document.querySelector("#close-icon");
 let searchBarValue = searchBar.value;
+let moreInfo = document.querySelector("#more-info")
+let surroundInfo = document.querySelector("#surround-image")
+let selectedShow
+
+console.log(surroundInfo)
 
 function showDefaultSearch() {
     document.querySelectorAll(".movieRow").forEach((e) => {
@@ -195,15 +199,7 @@ function clearScreen() {
     });
     document.querySelector("#search-container").classList.remove("hidden");
 }
-`
-<span>
-<img src="https://image.tmdb.org/t/p/w500{movies[i].backdrop_path}" 
-alt="{movies[i].title}"
-onmouseover="imgHover(this)"
-id={movies[i]}
-></img>
-</span>
-`;
+
 function createImageLink(link, page) {
     return `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchBarValue}&page=1&include_adult=false`;
 }
@@ -222,7 +218,6 @@ async function search() {
         document.querySelector("#search-container").innerHTML = "";
 
         console.log(resData);
-        //            onmouseover="imgHover(this)"
 
         resData.results.forEach((e) => {
             if (e.backdrop_path == null) {
@@ -234,7 +229,7 @@ async function search() {
             alt="${e.title}"
             class="searchedImage"
             onmouseover="()=>{
-                console.log("Hi")
+                console.log("TODO ADD A MOUSE OVER")
             }"
             id=${e}
             ></img>
@@ -263,36 +258,77 @@ async function search() {
         }
     }, "1500");
 }
-// onmouseover="imgHover(this)"
-function showShowInfo(e) {
-    let info = e.id.split(" , ");
+
+//${movies[i].genre_ids} , ${movies[i].first_air_date} , ${movies[i].overview} , ${movies[i].vote_average}
+
+document.addEventListener('scroll', update)
+
+function update(){
+    if (selectedShow==null) {
+        return
+    }
+    let e = selectedShow;
+    let info = e.childNodes[3].innerHTML.split(" , ")
     console.log(info)
+    let formatedInfo = `${info[4]} <br>Genres: ${info[0]} Date Aired: ${info[1]}Score: ${info[3]}/10`
+    console.log(formatedInfo)
+    moreInfo.innerHTML = formatedInfo
+    moreInfo.classList.remove("hidden")
+    surroundInfo.classList.remove("hidden")
+
+    let movieImageRect = e.childNodes[1].getBoundingClientRect()
+    e.childNodes[1].style.transform = "scale(1.1)"
+    e.childNodes[1].style.zIndex = 4
+
+    moreInfo.style.transform = "scale(1.08)"
+    console.log(movieImageRect)
+    moreInfo.style.top = `${movieImageRect.bottom-((2/100)*window.innerHeight)}px`
+    moreInfo.style.left = `${movieImageRect.left}px`
+    
+    console.log("The width is ",moreInfo.getBoundingClientRect().height)
+    surroundInfo.style.top = `${movieImageRect.top-((2/100)*window.innerHeight)}px`
+    surroundInfo.style.left = `${movieImageRect.left-((.6/100)*window.innerWidth)}px`
+    surroundInfo.style.height = `${(movieImageRect.bottom-movieImageRect.top+((2/100)*window.innerHeight))+moreInfo.getBoundingClientRect().height}px`
+    surroundInfo.style.width = `${movieImageRect.right-movieImageRect.left+((.6/100)*window.innerWidth)+((.6/100)*window.innerWidth)}px`
+
+    // surroundInfo.style.height = `${(movieImageRect.bottom-movieImageRect.top+((2/100)*window.innerHeight))+moreInfo.getBoundingClientRect().height+8}px`
+    // surroundInfo.style.width = `${movieImageRect.right-movieImageRect.left+((2/100)*window.innerWidth)+((2/100)*window.innerWidth)}px`
+
+}
+
+function showShowInfo(e) {
+    selectedShow = e;
+    update()
 }
 function hideShowInfo(e) {
-    console.log("hide");
+    e.childNodes[1].style.transform = "scale(1)"
+    moreInfo.classList.add("hidden")
+    surroundInfo.classList.add("hidden")
+    console.log("No on hover");
+    selectedShow = null
 }
 
 let container = document.querySelector("#container");
 
 function newMediaContainer(title, movies) {
-    // console.log(movies[0].backdrop_path);
     let x = "";
-    console.log(movies[4]);
     for (let i = 0; i < 4; i++) {
-        showId = `${movies[i].backdrop_path} , ${movies[i].genre_ids} , ${movies[i].first_air_date} , ${movies[i].overview} , ${movies[i].vote_average}`;
+        console.log(movies[i])
+        showId = `${movies[i].backdrop_path} , ${movies[i].genre_ids} , ${movies[i].first_air_date} , ${movies[i].overview} , ${movies[i].vote_average} , ${movies[i].title}`;
         x += `
-        <span>
+        <span
+        onmouseover="showShowInfo(this)"
+        onmouseout="hideShowInfo(this)"
+        potato="why-potato-no-work-sad-face">
         <img src="https://image.tmdb.org/t/p/w500${movies[i].backdrop_path}" 
         alt="${movies[i].title}"
         class="movieImage"
-        onmouseover="showShowInfo(this)"
-        onmouseout="hideShowInfo(this)"
-        ></img>
 
+        ></img>
+        <div id="moreInfo" class=""><h1>${movies[i].title}</h1> ${movies[i].genre_ids} , ${movies[i].first_air_date} , ${movies[i].overview} , ${movies[i].vote_average} , ${movies[i].title}</div>
         </span>
         `;
     }
-    //<div><div id="moreInfo" class=>${movies[i].genre_ids} , ${movies[i].first_air_date} , ${movies[i].overview} , ${movies[i].vote_average}</div></div>
     
     container.innerHTML += `
     <div class="movieRow carousel-container">
@@ -340,6 +376,7 @@ async function getNowPlaying() {
     let resData = await res.json();
     // console.log(resData.results)
     newMediaContainer("Now Playing", resData.results);
+    newMediaContainer("",resData.results);
 }
 
 async function searchAPI(type, genre, title) {
@@ -379,10 +416,13 @@ async function searchAPI(type, genre, title) {
     newMediaContainer(title, results);
 }
 
+
 getNowPlaying();
 //! now playing should be the last row and should go on forever
 
-searchAPI("tv", ["comedy"], "comedy");
+// searchAPI("tv", ["comedy"], "comedy");
+
+
 
 // searchAPI("movie", ["comedy"], "movie comedy");
 // searchAPI("both", ["Animation"], "Animation");
