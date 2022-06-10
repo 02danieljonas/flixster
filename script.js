@@ -10,7 +10,7 @@ const API_KEY = 'api key'
         make it so the evenlist is only sent once when typing
         when the listern is almost done is check the search and if search is different is fires another 
 */
-
+let count = 0
 let movieTemplate = {
     movieTrailer: "",
     title: "",
@@ -220,24 +220,29 @@ async function search() {
         console.log(resData);
 
         resData.results.forEach((e) => {
+            console.log(e)
             if (e.backdrop_path == null) {
                 return;
             }
             // console.log("Improtant", e.backdrop_path);
             document.querySelector("#search-container").innerHTML += `
+            <div
+            class="searchedImage"
+            
+            >
             <img src="https://image.tmdb.org/t/p/w500${e.backdrop_path}" 
             alt="${e.title}"
-            class="searchedImage"
-            onmouseover="()=>{
-                console.log("TODO ADD A MOUSE OVER")
-            }"
             id=${e}
+            class="IImg"
             ></img>
-    
+            <h1 id="searchTitle" class="big-title">
+            ${e.title}
+            </h1>
+            ${e.vote_average}<span class=gold-please>★</span>
+
+</div>
             `;
         });
-
-        // console.log("", resData);
     } else {
         clearScreen();
     }
@@ -259,76 +264,26 @@ async function search() {
     }, "1500");
 }
 
-//${movies[i].genre_ids} , ${movies[i].first_air_date} , ${movies[i].overview} , ${movies[i].vote_average}
-
-document.addEventListener('scroll', update)
-
-function update(){
-    if (selectedShow==null) {
-        return
-    }
-    let e = selectedShow;
-    let info = e.childNodes[3].innerHTML.split(" , ")
-    console.log(info)
-    let formatedInfo = `${info[4]} <br>Genres: ${info[0]} Date Aired: ${info[1]}Score: ${info[3]}/10`
-    console.log(formatedInfo)
-    moreInfo.innerHTML = formatedInfo
-    moreInfo.classList.remove("hidden")
-    surroundInfo.classList.remove("hidden")
-
-    let movieImageRect = e.childNodes[1].getBoundingClientRect()
-    e.childNodes[1].style.transform = "scale(1.1)"
-    e.childNodes[1].style.zIndex = 4
-
-    moreInfo.style.transform = "scale(1.08)"
-    console.log(movieImageRect)
-    moreInfo.style.top = `${movieImageRect.bottom-((2/100)*window.innerHeight)}px`
-    moreInfo.style.left = `${movieImageRect.left}px`
-    
-    console.log("The width is ",moreInfo.getBoundingClientRect().height)
-    surroundInfo.style.top = `${movieImageRect.top-((2/100)*window.innerHeight)}px`
-    surroundInfo.style.left = `${movieImageRect.left-((.6/100)*window.innerWidth)}px`
-    surroundInfo.style.height = `${(movieImageRect.bottom-movieImageRect.top+((2/100)*window.innerHeight))+moreInfo.getBoundingClientRect().height}px`
-    surroundInfo.style.width = `${movieImageRect.right-movieImageRect.left+((.6/100)*window.innerWidth)+((.6/100)*window.innerWidth)}px`
-
-    // surroundInfo.style.height = `${(movieImageRect.bottom-movieImageRect.top+((2/100)*window.innerHeight))+moreInfo.getBoundingClientRect().height+8}px`
-    // surroundInfo.style.width = `${movieImageRect.right-movieImageRect.left+((2/100)*window.innerWidth)+((2/100)*window.innerWidth)}px`
-
-}
-
-function showShowInfo(e) {
-    selectedShow = e;
-    update()
-}
-function hideShowInfo(e) {
-    e.childNodes[1].style.transform = "scale(1)"
-    moreInfo.classList.add("hidden")
-    surroundInfo.classList.add("hidden")
-    console.log("No on hover");
-    selectedShow = null
-}
-
 let container = document.querySelector("#container");
 
 function newMediaContainer(title, movies) {
     let x = "";
-    for (let i = 0; i < 4; i++) {
+    for (let i = count; i < count+4; i++) {
         console.log(movies[i])
-        showId = `${movies[i].backdrop_path} , ${movies[i].genre_ids} , ${movies[i].first_air_date} , ${movies[i].overview} , ${movies[i].vote_average} , ${movies[i].title}`;
+        showId = `${movies[i].backdrop_path}, ${movies[i]} , ${movies[i].overview} , ${movies[i].vote_average} , ${movies[i].title}`;
         x += `
         <span
-        onmouseover="showShowInfo(this)"
-        onmouseout="hideShowInfo(this)"
         potato="why-potato-no-work-sad-face">
         <img src="https://image.tmdb.org/t/p/w500${movies[i].backdrop_path}" 
         alt="${movies[i].title}"
         class="movieImage"
 
         ></img>
-        <div id="moreInfo" class=""><h1>${movies[i].title}</h1> ${movies[i].genre_ids} , ${movies[i].first_air_date} , ${movies[i].overview} , ${movies[i].vote_average} , ${movies[i].title}</div>
+        <div id="moreInfo" class=""><h1 class="big-title">${movies[i].title}</h1> ${movies[i].vote_average}<span class=gold-please>★</span></div>
         </span>
         `;
     }
+    count+=4
     
     container.innerHTML += `
     <div class="movieRow carousel-container">
@@ -377,6 +332,9 @@ async function getNowPlaying() {
     // console.log(resData.results)
     newMediaContainer("Now Playing", resData.results);
     newMediaContainer("",resData.results);
+    newMediaContainer("",resData.results);
+    newMediaContainer("",resData.results);
+    newMediaContainer("",resData.results);
 }
 
 async function searchAPI(type, genre, title) {
@@ -419,25 +377,3 @@ async function searchAPI(type, genre, title) {
 
 getNowPlaying();
 //! now playing should be the last row and should go on forever
-
-// searchAPI("tv", ["comedy"], "comedy");
-
-
-
-// searchAPI("movie", ["comedy"], "movie comedy");
-// searchAPI("both", ["Animation"], "Animation");
-// searchAPI("movie", ["Horror"], "Horror");
-// searchAPI("movie", ["Animation"], "movie Animation");
-// searchAPI("tv", ["Animation"], "tv Animation");
-// searchAPI("tv", ["comedy"], "tv comedy");
-
-// searchAPI("tv", ["comedy"], "comedy");
-
-// both comedy, animation
-
-//Trending
-//Popular Movies
-//Comedies
-//Adventure
-//Thriller
-//Mystery

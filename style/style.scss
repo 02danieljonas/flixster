@@ -3,7 +3,6 @@
 html {
     background-color: #141414;
     font-family: "Bebas Neue", cursive;
-
     color: white;
 }
 #navbar-container {
@@ -105,18 +104,16 @@ html {
     justify-content: start;
     align-items: auto;
     align-content: start;
-    :after {
-        display: block;
-        content: " placeholder ";
-        margin: 4px;
-        flex: 999 999 auto;
-    }
+
     .searchedImage {
         flex: 0 0 auto;
         margin: 4px;
-        //  auto;
         width: 20vw;
         padding-bottom: 10vh;
+        .IImg{
+        width: 20vw;
+
+        }
     }
     // https://loading.io/flexbox/
 }
@@ -156,7 +153,7 @@ footer {
     display: flex;
     background-color: transparent;
     // overflow: hidden;
-    padding-bottom: 10vw;
+    padding-bottom: 5vh;
 
     .genre-title {
         position: relative;
@@ -183,3 +180,23 @@ footer {
     background-color: #303030;
     z-index: -1;
 }
+
+.gold-please{
+    color: #FFD700;
+}
+
+#bottom{
+    position: relative;
+    bottom: 0;
+}
+
+#searchTitle{
+    
+}
+
+.big-title{
+    padding-right: 10px;
+}
+//getting the api working
+//something I over came was myself I over scoped with this project and wanted to recreate netflix and I had to cut back on what I was working on 
+//modal

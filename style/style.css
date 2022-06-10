@@ -127,15 +127,6 @@ html {
       align-content: start;
 }
 
-#search-container :after {
-  display: block;
-  content: " placeholder ";
-  margin: 4px;
-  -webkit-box-flex: 999;
-      -ms-flex: 999 999 auto;
-          flex: 999 999 auto;
-}
-
 #search-container .searchedImage {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
@@ -143,6 +134,10 @@ html {
   margin: 4px;
   width: 20vw;
   padding-bottom: 10vh;
+}
+
+#search-container .searchedImage .IImg {
+  width: 20vw;
 }
 
 footer {
@@ -182,7 +177,7 @@ footer {
   display: -ms-flexbox;
   display: flex;
   background-color: transparent;
-  padding-bottom: 10vw;
+  padding-bottom: 5vh;
 }
 
 .mediaContainer .genre-title {
@@ -209,5 +204,18 @@ footer {
   position: fixed;
   background-color: #303030;
   z-index: -1;
+}
+
+.gold-please {
+  color: #FFD700;
+}
+
+#bottom {
+  position: relative;
+  bottom: 0;
+}
+
+.big-title {
+  padding-right: 10px;
 }
 /*# sourceMappingURL=style.css.map */
