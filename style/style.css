@@ -6,6 +6,7 @@ html {
 }
 
 #navbar-container {
+  z-index: 99;
   position: fixed;
   top: 0;
   left: 0;
@@ -34,7 +35,7 @@ html {
 }
 
 #navbar-container #left-side-info {
-  color: #e5e5e5;
+  color: white;
   list-style-type: none;
   margin: 0;
   width: 52px;
@@ -43,10 +44,6 @@ html {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-}
-
-#navbar-container #left-side-info :hover {
-  color: #d1d1d1;
 }
 
 #navbar-container #left-side-info span {
@@ -110,6 +107,44 @@ html {
   display: none !important;
 }
 
+#search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: auto;
+      -ms-flex-align: auto;
+          align-items: auto;
+  -ms-flex-line-pack: start;
+      align-content: start;
+}
+
+#search-container :after {
+  display: block;
+  content: " placeholder ";
+  margin: 4px;
+  -webkit-box-flex: 999;
+      -ms-flex: 999 999 auto;
+          flex: 999 999 auto;
+}
+
+#search-container .searchedImage {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin: 4px;
+  width: 20vw;
+  padding-bottom: 10vh;
+}
+
 footer {
   position: fixed;
   color: white;
@@ -137,9 +172,9 @@ footer {
 
 #container {
   position: relative;
-  top: 20vh;
-  background-color: darkgreen;
+  top: 68px;
   height: 120px;
+  padding-left: 4vw;
 }
 
 .mediaContainer {
@@ -147,7 +182,7 @@ footer {
   display: -ms-flexbox;
   display: flex;
   background-color: orange;
-  overflow: hidden;
+  padding-bottom: 4vw;
 }
 
 .mediaContainer .genre-title {
@@ -157,6 +192,16 @@ footer {
 
 .mediaContainer img {
   padding: 0 2px;
-  width: 20vw;
+  width: 22vw;
+}
+
+.mediaContainer :hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.imgHover :hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 /*# sourceMappingURL=style.css.map */

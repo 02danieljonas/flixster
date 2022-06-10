@@ -7,6 +7,7 @@ html {
     color: white;
 }
 #navbar-container {
+    z-index: 99;
     position: fixed;
     top: 0;
     left: 0;
@@ -25,16 +26,16 @@ html {
         top: 8px;
     }
     #left-side-info {
-        color: #e5e5e5;
+        color: white;
         // padding: 0 50px;
         list-style-type: none;
         margin: 0;
         width: 52px;
         padding: 0;
         user-select: none;
-        :hover {
-            color: #d1d1d1;
-        }
+        // :hover {
+        //     color: #d1d1d1;
+        // }
         span {
             padding: 0 10px;
         }
@@ -50,8 +51,8 @@ html {
             height: 36px;
             display: flex;
             margin-top: 15px;
-            .icon{
-                padding: 0 10px ;
+            .icon {
+                padding: 0 10px;
             }
             input {
                 padding-top: 6px;
@@ -83,8 +84,8 @@ html {
 //     display: none !important;
 //     width: 24px;
 // }
-.icon{
-    width: 10!important;
+.icon {
+    width: 10 !important;
 }
 
 #selected {
@@ -93,6 +94,31 @@ html {
 
 .hidden {
     display: none !important;
+}
+
+#search-container {
+    // width: 80vw;
+    // background-color: green;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+    align-items: auto;
+    align-content: start;
+    :after {
+        display: block;
+        content: " placeholder ";
+        margin: 4px;
+        flex: 999 999 auto;
+    }
+    .searchedImage {
+        flex: 0 0 auto;
+        margin: 4px;
+        //  auto;
+        width: 20vw;
+        padding-bottom: 10vh;
+    }
+    // https://loading.io/flexbox/
 }
 
 footer {
@@ -106,34 +132,53 @@ footer {
     cursor: pointer;
 }
 
-#media-container{
+#media-container {
     position: relative;
     top: 68px;
     background-color: darkblue;
     // height: 120px;
     display: flex;
-    img{
-        padding: 0 2px ;
+    img {
+        padding: 0 2px;
         width: 20vw;
     }
 }
-#container{
+#container {
     position: relative;
-    top: 20vh;
-    background-color: darkgreen;
+    top: 68px;
+    // background-color: darkgreen;
     height: 120px;
+    padding-left: 4vw;
 }
+// .genre-title{
+//     padding-left: 4vw;
+// }
 
-.mediaContainer{
+.mediaContainer {
     display: flex;
     background-color: orange;
-    overflow: hidden;
-    .genre-title{
+    // overflow: hidden;
+    padding-bottom: 4vw;
+
+    .genre-title {
         position: relative;
         top: -20pt;
     }
-    img{
-        padding: 0 2px ;
-        width: 20vw;
+    img {
+        padding: 0 2px;
+        width: 22vw;
+    }
+    // #moreInfo {
+    //     color: blue;
+    //     position: fixed;
+    //     top: 30;
+    // }
+    :hover {
+        transform: scale(1.1);
+    }
+}
+.imgHover {
+    :hover {
+        transform: scale(1.1);
     }
 }

@@ -9,13 +9,11 @@
     </head>
 
     <body>
-        <span id="navbar-container" class="pointer">
+        <span id="navbar-container">
             <span>
                 <span id="logo">Flixster</span>
                 <span id="left-side-info">
-                    <span>Home</span>
-                    <span>TV Shows</span>
-                    <span>Movies</span>
+                    <span class="pointer" >Home</span>
                 </span>
             </span>
             <span id="right-side-info">
@@ -27,7 +25,8 @@
                         id="search-icon"
                     />
                     <label for="search-input" class="hidden"></label>
-                    <input type="text" id="search-input" placeholder="Search" />
+                    <input type="text" id="search-input" placeholder="Search" 
+                    />
                     <img
                         src="images\close.svg"
                         id="close-icon"
@@ -39,12 +38,14 @@
                 </span>
             </span>
         </span>
-        <div id="media-container">
-
-        </div>
+        <!-- <div id="media-container">
+        </div> -->
         <div id="container">
-            
+            <div id="search-container" class="hidden"></div>
+            <button id="prevBtn">Prev</button>
+            <button id="nextBtn">Next</button>
         </div>
+
     <script id="secrets" src="secrets\hi.js"></script>
     <script src="script.js"></script>
 
