@@ -105,3 +105,35 @@ footer {
 .pointer {
     cursor: pointer;
 }
+
+#media-container{
+    position: relative;
+    top: 68px;
+    background-color: darkblue;
+    // height: 120px;
+    display: flex;
+    img{
+        padding: 0 2px ;
+        width: 20vw;
+    }
+}
+#container{
+    position: relative;
+    top: 20vh;
+    background-color: darkgreen;
+    height: 120px;
+}
+
+.mediaContainer{
+    display: flex;
+    background-color: orange;
+    overflow: hidden;
+    .genre-title{
+        position: relative;
+        top: -20pt;
+    }
+    img{
+        padding: 0 2px ;
+        width: 20vw;
+    }
+}
