@@ -335,6 +335,8 @@ async function getNowPlaying() {
     newMediaContainer("",resData.results);
     newMediaContainer("",resData.results);
     newMediaContainer("",resData.results);
+    newMediaContainer("",resData.results);
+    newMediaContainer("",resData.results);
 }
 
 async function searchAPI(type, genre, title) {
