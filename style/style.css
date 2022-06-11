@@ -3,6 +3,15 @@ html {
   background-color: #141414;
   font-family: "Bebas Neue", cursive;
   color: white;
+  scroll-behavior: smooth;
+}
+
+.hidden {
+  display: none !important;
+}
+
+span#no-api-key {
+  font-family: initial !important;
 }
 
 #navbar-container {
@@ -85,28 +94,6 @@ html {
   width: 100%;
 }
 
-#navbar-container #right-side-info #profiles #arrow-icon {
-  -webkit-transition-duration: 0.367s;
-          transition-duration: 0.367s;
-}
-
-#navbar-container #right-side-info #profiles :hover {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.icon {
-  width: 10 !important;
-}
-
-#selected {
-  color: white;
-}
-
-.hidden {
-  display: none !important;
-}
-
 #search-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -136,39 +123,17 @@ html {
   padding-bottom: 10vh;
 }
 
-#search-container .searchedImage .IImg {
+#search-container .searchedImage img {
   width: 20vw;
-}
-
-footer {
-  position: fixed;
-  color: white;
-  bottom: 0;
-  font-size: 999;
 }
 
 .pointer {
   cursor: pointer;
 }
 
-#media-container {
-  position: relative;
-  top: 68px;
-  background-color: darkblue;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#media-container img {
-  padding: 0 2px;
-  width: 20vw;
-}
-
 #container {
   position: relative;
   top: 68px;
-  height: 120px;
   padding-left: 4vw;
 }
 
@@ -191,28 +156,8 @@ footer {
   width: 22vw;
 }
 
-#more-info {
-  margin: 0;
-  padding: 3px;
-  background-color: #303030;
-  position: fixed;
-  z-index: 0;
-  width: 22vw;
-}
-
-#surround-image {
-  position: fixed;
-  background-color: #303030;
-  z-index: -1;
-}
-
 .gold-please {
   color: #FFD700;
-}
-
-#bottom {
-  position: relative;
-  bottom: 0;
 }
 
 .big-title {
@@ -220,8 +165,11 @@ footer {
   font-size: 20pt;
 }
 
-#btnbtn {
-  position: fixed;
-  bottom: 0;
+#loadBtn {
+  position: relative;
+  bottom: -40px;
+  background-color: cyan;
+  color: black;
+  border: purple;
 }
 /*# sourceMappingURL=style.css.map */

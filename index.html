@@ -9,14 +9,16 @@
     </head>
 
     <body>
-        <div id="more-info" class="hidden"></div>
-        <div id="surround-image" class="hidden"></div>
-
         <span id="navbar-container">
             <span>
                 <span id="logo">Flixster</span>
                 <span id="left-side-info">
-                    <span class="pointer" >Home</span>
+                    <span
+                        class="pointer"
+                        onclick="clickedHome();
+                    "
+                        >Home</span
+                    >
                 </span>
             </span>
             <span id="right-side-info">
@@ -28,8 +30,7 @@
                         id="search-icon"
                     />
                     <label for="search-input" class="hidden"></label>
-                    <input type="text" id="search-input" placeholder="Search" 
-                    />
+                    <input type="text" id="search-input" placeholder="Search" />
                     <img
                         src="images\close.svg"
                         id="close-icon"
@@ -41,19 +42,17 @@
                 </span>
             </span>
         </span>
-        <!-- <div id="media-container">
-        </div> -->
         <div id="container">
             <div id="search-container" class="hidden"></div>
-            <!-- <button id="prevBtn">Prev</button>
-            <button id="nextBtn">Next</button> -->
+
         </div>
-        <button class="hidden" id="btnbtn" onclick="newMediaContainer('',resData.results)"">Load More</button>
-
-
-    <script id="secrets" src="secrets\hi.js"></script>
-    <script src="script.js"></script>
-
+        <button
+        id="loadBtn"
+        onclick="newMediaContainer('',movieList)"
+    >
+        Load More
+    </button>
+        <script id="secrets" src="secret.js"></script>
+        <script src="script.js"></script>
     </body>
-
 </html>

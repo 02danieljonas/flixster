@@ -4,7 +4,18 @@ html {
     background-color: #141414;
     font-family: "Bebas Neue", cursive;
     color: white;
+    scroll-behavior: smooth;
 }
+.hidden {
+    display: none !important;
+}
+
+span#no-api-key{
+    font-family: initial !important;
+    // color: blue !important;
+}
+
+
 #navbar-container {
     z-index: 99;
     position: fixed;
@@ -26,15 +37,11 @@ html {
     }
     #left-side-info {
         color: white;
-        // padding: 0 50px;
         list-style-type: none;
         margin: 0;
         width: 52px;
         padding: 0;
         user-select: none;
-        // :hover {
-        //     color: #d1d1d1;
-        // }
         span {
             padding: 0 10px;
         }
@@ -68,83 +75,37 @@ html {
                 }
             }
         }
-        #profiles {
-            #arrow-icon {
-                transition-duration: 0.367s;
-            }
-            :hover {
-                transform: rotate(180deg);
-            }
-        }
     }
 }
 
-// #search-icon {
-//     display: none !important;
-//     width: 24px;
-// }
-.icon {
-    width: 10 !important;
-}
 
-#selected {
-    color: white;
-}
-
-.hidden {
-    display: none !important;
-}
 
 #search-container {
-    // width: 80vw;
-    // background-color: green;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: start;
     align-items: auto;
     align-content: start;
-
     .searchedImage {
         flex: 0 0 auto;
         margin: 4px;
         width: 20vw;
         padding-bottom: 10vh;
-        .IImg{
+        img{
         width: 20vw;
-
         }
     }
     // https://loading.io/flexbox/
-}
-
-footer {
-    position: fixed;
-    color: white;
-    bottom: 0;
-    font-size: 999;
 }
 
 .pointer {
     cursor: pointer;
 }
 
-#media-container {
-    position: relative;
-    top: 68px;
-    background-color: darkblue;
-    // height: 120px;
-    display: flex;
-    img {
-        padding: 0 2px;
-        width: 20vw;
-    }
-}
 #container {
     position: relative;
     top: 68px;
-    // background-color: darkgreen;
-    height: 120px;
     padding-left: 4vw;
 }
 
@@ -152,7 +113,6 @@ footer {
 .mediaContainer {
     display: flex;
     background-color: transparent;
-    // overflow: hidden;
     padding-bottom: 5vh;
 
     .genre-title {
@@ -166,32 +126,8 @@ footer {
     }
 }
 
-#more-info{
-    margin: 0;
-    padding: 3px;
-    background-color: #303030;
-    position: fixed;
-    z-index: 0;
-    width: 22vw;
-}
-
-#surround-image{
-    position: fixed;
-    background-color: #303030;
-    z-index: -1;
-}
-
 .gold-please{
     color: #FFD700;
-}
-
-#bottom{
-    position: relative;
-    bottom: 0;
-}
-
-#searchTitle{
-    
 }
 
 .big-title{
@@ -199,10 +135,11 @@ footer {
     font-size: 20pt;
 }
 
-#btnbtn{
-    position: fixed;
-    bottom: 0;
+#loadBtn{
+    // display: none;
+    position: relative;
+    bottom: -40px;
+    background-color: cyan;
+    color: black;
+    border: purple;
 }
-//javascript and manipulating html and css with it
-//something I over came was myself I over scoped with this project and wanted to recreate netflix and I had to cut back on what I was working on 
-//modal
