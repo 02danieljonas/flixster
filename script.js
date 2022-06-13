@@ -15,13 +15,9 @@ let count = 0;
 let page = 1;
 let movieList;
 let searchBar = document.querySelector("#search-input");
-let closeIcon = document.querySelector("#close-icon");
+let closeIcon = document.querySelector("#close-search-btn");
 let searchBarValue = searchBar.value;
-let loadBtn = document.querySelector("#loadBtn");
-
-// document.querySelector("#loadBtn").style.display = "none";
-
-console.log(loadBtn.style.display);
+let loadBtn = document.querySelector("#load-more-movies-btn");
 
 function showDefaultSearch() {
     document.querySelectorAll(".movieRow").forEach((e) => {
@@ -103,13 +99,13 @@ function newMediaContainer(title, movies) {
         showId = `${movies[i].backdrop_path}, ${movies[i]} , ${movies[i].overview} , ${movies[i].vote_average} , ${movies[i].title}`;
         x += `
         <span
-        potato="why-potato-no-work-sad-face">
+        potato="why-potato-no-work-sad-face" class="movie-card">
         <img src="https://image.tmdb.org/t/p/w500${movies[i].backdrop_path}" 
         alt="${movies[i].title} movie image"
-        class="movieImage"
+        class="movie-poster"
 
         ></img>
-        <div id="moreInfo" class=""><h1 class="big-title">${movies[i].title}</h1> ${movies[i].vote_average}<span class=gold-please>★</span></div>
+        <div id="moreInfo" class=""><h1 class="big-title movie-title">${movies[i].title}</h1> ${movies[i].vote_average}<span class=gold-please>★</span></div>
         </span>
         `;
     }
@@ -118,7 +114,7 @@ function newMediaContainer(title, movies) {
     container.innerHTML += `
     <div class="movieRow carousel-container">
     <span class=genre-title>${title}</span>
-    <div class="mediaContainer">
+    <div class="mediaContainer" id="movies-grid">
     ${x}
     </div>
     </div>`;

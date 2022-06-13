@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+//https://loading.io/flexbox/
+
+
 
 html {
     background-color: #141414;
@@ -10,11 +13,10 @@ html {
     display: none !important;
 }
 
-span#no-api-key{
+span#no-api-key {
     font-family: initial !important;
     // color: blue !important;
 }
-
 
 #navbar-container {
     z-index: 99;
@@ -78,8 +80,6 @@ span#no-api-key{
     }
 }
 
-
-
 #search-container {
     display: flex;
     flex-wrap: wrap;
@@ -92,11 +92,10 @@ span#no-api-key{
         margin: 4px;
         width: 20vw;
         padding-bottom: 10vh;
-        img{
-        width: 20vw;
+        img {
+            width: 20vw;
         }
     }
-    // https://loading.io/flexbox/
 }
 
 .pointer {
@@ -108,7 +107,6 @@ span#no-api-key{
     top: 68px;
     padding-left: 4vw;
 }
-
 
 .mediaContainer {
     display: flex;
@@ -126,16 +124,16 @@ span#no-api-key{
     }
 }
 
-.gold-please{
-    color: #FFD700;
+.gold-please {
+    color: #ffd700;
 }
 
-.big-title{
+.big-title {
     padding-right: 10px;
     font-size: 20pt;
 }
 
-#loadBtn{
+#load-more-movies-btn {
     // display: none;
     position: relative;
     bottom: -40px;
