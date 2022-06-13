@@ -39,7 +39,7 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 - [ ] Implement anything else that you can get done to improve the app functionality!
 
 ### Walkthrough Video
-!{}(https://drive.google.com/file/d/1Smhxn7uOgDIZe7YJrOpODnSCN8NbzynU/view?usp=drivesdk)
+![](https://recordit.co/Ejz0qV7DyC)
 
 `TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
 
