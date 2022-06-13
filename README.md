@@ -40,9 +40,13 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
+#### Load more
+![](http://g.recordit.co/nfwwYTbnem.gif)
+#### Send to top
+![](http://g.recordit.co/HwiCkS55Wb.gif)
+#### Search functionality
+![](http://g.recordit.co/37erpkXboj.gif)
 
-`ADD_EMBEDDED_CODE_HERE`
 
 ### Reflection
 
@@ -59,8 +63,6 @@ If I had more time, I would try to make my clone a lot like Netflix, including c
 For this project what didn't go as plan was recreating Netflix. I overscopped and thought I could complete all of Netflix's features in 2-3 days. I wish I didn't take the netflix route and just made the best program that I could. I have learned that I should minimalize my scope when programing and add more features as I finish.
 
 ### Open-source libraries used
-
-It's not an open source library but I really like this: 
 
 - Add any links to open-source libraries used in your project.
 
